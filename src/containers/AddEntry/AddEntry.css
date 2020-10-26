@@ -1,0 +1,41 @@
+.AddEntry {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+.Button {
+    background-color: #85bb65;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #173008;
+    color: white;
+    font-family: inherit;
+    font-size: 3rem;
+    padding: 0px 30px;
+    box-shadow: 2px 2px 2px #173008;
+    width: 100%;
+    margin: 5px auto;
+    transition: background-color 0.4s ease;
+}
+
+.Button:hover, .Button:active {
+    background-color: #a5c991;
+    border: 1px solid #173008;
+    color: white;
+}
+
+
+.Button:disabled {
+    background-color: #37383b;
+    cursor: not-allowed;
+}
+
+@media (min-width: 600px) {
+    .AddEntry {
+        width: 400px;
+    }
+}

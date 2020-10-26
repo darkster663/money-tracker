@@ -1,0 +1,54 @@
+.Card {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #d3d5db;
+    height: 150px;
+    box-shadow: 1px 1px 1px black;
+    position: relative;
+}
+
+.Description {
+    font-size: 1rem;
+    color: #334fb5;
+    position: absolute;
+    bottom: 30px;
+    padding-left: 3px;
+}
+
+.Money {
+    font-size: 2rem;
+    color: #85bb65;
+    position: absolute;
+    bottom: 75px;
+    right: 0px;
+    padding-right: 3px;
+}
+
+.Category {
+    position: absolute;
+    bottom: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    right: 5px;
+}
+
+.Logo {
+    position: absolute;
+    right: 5px;
+    bottom: 15px;
+}
+
+
+/* Desktop only */
+@media (min-width: 500px) {
+    .Card {
+        width: 30%;
+    }
+
+    .Description {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,28 @@
+.NavigationItem {
+    margin: 10px 0;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 20px 40px;
+}
+
+.NavigationItem a {
+    font-size: 1.5em;
+    color: #334fb5;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: block;
+    text-transform: uppercase;
+    transition: font-size 0.6s ease-out;
+    padding: 0px 5px;
+}
+
+.NavigationItem a:hover, 
+.NavigationItem a:active,
+.NavigationItem a.active {
+    font-size: 2em;
+    border-bottom: 2px solid #37383b;
+    
+}
