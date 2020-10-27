@@ -13,7 +13,8 @@ const diaryEntries = props => (
                 money={entry.money}
                 category={entry.category}
                 date={entry.date}
-                delete={props.onDeleteEntry}/>
+                delete={props.onDeleteEntry}
+                edit={props.onEditEntry}/>
         ))}
     </div>
 )

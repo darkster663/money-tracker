@@ -44,7 +44,7 @@
 .DeleteButton {
     display: none;
     position: absolute;
-    left: 0px;
+    left: calc(20% + 2px);
     bottom: 0px;
     background-color: #d40202;
     outline: none;
@@ -69,6 +69,33 @@
     display: inline-block;
 }
 
+.EditButton {
+    display: none;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: #334fb5;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #1a3bb0;
+    color: white;
+    font-family: inherit;
+    font-size: 2rem;
+    padding: 5px;
+    box-shadow: 2px 2px 2px #1a3bb0;
+    width: 20%;
+    height: 30%;
+}
+
+.EditButton:hover, .EditButton:active {
+    background-color: #4265e3;
+    border: 1px solid #1a3bb0;
+    color: white;
+}
+
+.Card:hover > .EditButton, .EditButton:hover {
+    display: inline-block;
+}
 /* Desktop only */
 @media (min-width: 500px) {
     .Card {
@@ -83,6 +110,15 @@
 /* Mobile only */
 @media(max-width: 499px) {
     .DeleteButton {
+        display: inline-block;
+        width: 15%;
+        height: 15%;
+        font-size: 1rem;
+        padding-top: 0px;
+        left: calc(15% + 2px);
+
+    }
+    .EditButton {
         display: inline-block;
         width: 15%;
         height: 15%;

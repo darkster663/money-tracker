@@ -51,14 +51,29 @@ class AddEntry extends Component {
         formIsValid: false
     };
 
+    componentDidMount() {
+        if (this.props.editEntry) {
+            const updatedForm = this.state.form;
+            updatedForm.description.value = this.props.editEntry.description;
+            updatedForm.description.valid = true;
+            updatedForm.money.value = this.props.editEntry.money;
+            updatedForm.money.valid = true;
+            updatedForm.category.value = this.props.editEntry.category;
+            this.setState({form: updatedForm});
+        }
+    }
+
     addHandler = (event) => {
         event.preventDefault();
         const formData = {};
         for (let formElementIdentifier in this.state.form) {
             formData[formElementIdentifier] = this.state.form[formElementIdentifier].value;
         }
+        formData['id'] = this.props.editEntry ? this.props.editEntry.id : formData['description'];
         this.props.onAddEntry(formData);
     }
+
+    
 
     inputChangedHandler = (event, inputIdentifier) => {
         const updatedFormElement = updateObject(this.state.form[inputIdentifier], {
@@ -106,7 +121,7 @@ class AddEntry extends Component {
         )
         return (
             <div className={classes.AddEntry}>
-                <h2>Add entry data</h2>
+                <h2>{this.props.editEntry ? "Edit entry data" : "Add entry data"}</h2>
                 {form}
             </div>
         );

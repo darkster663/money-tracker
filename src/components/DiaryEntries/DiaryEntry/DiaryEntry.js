@@ -36,7 +36,9 @@ const diaryEntry = props => {
             <p className={classes.Category}>{props.category}</p>
             <p className={classes.Date}>{props.date.toLocaleDateString().split(",")[0]}</p>
             <div className={classes.Logo}><Logo source={logoSource} /></div>    
+            <button className={classes.EditButton} onClick={() => props.edit(props.id)}>Edit</button>
             <button className={classes.DeleteButton} onClick={() => props.delete(props.id)}>X</button>
+            
         </div>
     );
 };

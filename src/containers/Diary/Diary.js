@@ -49,7 +49,8 @@ class Diary extends Component {
             }
         ],
         showingModal: false,
-        entryForDeletionId: null
+        entryForDeletionId: null,
+        editedEntry: null
     };
 
     addEntryHandler = () => {
@@ -60,17 +61,36 @@ class Diary extends Component {
     onAddEntry = (formData) => {
         //Placeholder method
         const entry = {
-            id: formData['description'],
+            id: formData['id'],
             description: formData['description'],
             money: formData['money'],
             category: formData['category'],
             date: new Date()
         };
-        this.setState(prevState => ({
-            entries: [...prevState.entries, entry]
-        }));
+        let index = null;
+        let money = null
+        for (let i=0; i < this.state.entries.length; i++) {
+            if (this.state.entries[i].id === entry.id) {
+                index = i;
+                money = this.state.entries[i].money;
+            }
+        }
+        if (index != null) {
+            const updatedEntries = [...this.state.entries];
+            updatedEntries[index] = entry;
+            this.setState(prevState => ({total: prevState.total -parseInt(entry.money) + parseInt(money)}));
+            this.setState({entries: updatedEntries});
+
+        } else {
+            this.setState(prevState => ({
+                entries: [...prevState.entries, entry]
+            }));
+            this.setState(prevState => ({total: prevState.total - entry.money}));
+
+        }
         this.setState({showingModal: false});
-        this.setState(prevState => ({total: prevState.total - entry.money}));
+        
+        
     }
     deleteEntryHandler = () => {
         const entries = this.state.entries;
@@ -90,7 +110,17 @@ class Diary extends Component {
     }
 
     closeModalHandler = () => {
-        this.setState({showingModal: false, entryForDeletionId: null});
+        this.setState({showingModal: false, entryForDeletionId: null, editedEntry: null});
+    }
+
+    onEditEntry = (id) => {
+        for (let entry of this.state.entries) {
+            if (entry.id == id) {
+                this.setState({editedEntry: entry});
+                break;
+            }
+        }
+        this.setState({showingModal: true});
     }
     
 
@@ -106,9 +136,9 @@ class Diary extends Component {
             <Aux>
                 <MoneyDisplay totalMoney={this.state.total}/>
                 <div className={classes.AddButtonContainer}><button className={classes.AddButton} onClick={this.addEntryHandler}>ADD</button></div>
-                <DiaryEntries entries={this.state.entries} onDeleteEntry={this.onDeleteEntry}/>
+                <DiaryEntries entries={this.state.entries} onDeleteEntry={this.onDeleteEntry} onEditEntry={this.onEditEntry}/>
                 <Modal show={this.state.showingModal} modalClosed={this.closeModalHandler}>
-                    {this.state.showingModal && !this.state.entryForDeletionId ? <AddEntry onAddEntry={this.onAddEntry}/> : null}
+                    {this.state.showingModal && !this.state.entryForDeletionId ? <AddEntry onAddEntry={this.onAddEntry} editEntry={this.state.editedEntry}/> : null}
                     {this.state.showingModal && this.state.entryForDeletionId ? deleteMenu : null}
                 </Modal>
             </Aux>
