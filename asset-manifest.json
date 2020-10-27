@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/money-tracker/static/js/main.f7c4fdce.chunk.js",
-    "main.js.map": "/money-tracker/static/js/main.f7c4fdce.chunk.js.map",
+    "main.js": "/money-tracker/static/js/main.831058e6.chunk.js",
+    "main.js.map": "/money-tracker/static/js/main.831058e6.chunk.js.map",
     "runtime-main.js": "/money-tracker/static/js/runtime-main.37284696.js",
     "runtime-main.js.map": "/money-tracker/static/js/runtime-main.37284696.js.map",
-    "static/js/2.3d4af7ae.chunk.js": "/money-tracker/static/js/2.3d4af7ae.chunk.js",
-    "static/js/2.3d4af7ae.chunk.js.map": "/money-tracker/static/js/2.3d4af7ae.chunk.js.map",
+    "static/js/2.311cfa86.chunk.js": "/money-tracker/static/js/2.311cfa86.chunk.js",
+    "static/js/2.311cfa86.chunk.js.map": "/money-tracker/static/js/2.311cfa86.chunk.js.map",
     "index.html": "/money-tracker/index.html",
-    "precache-manifest.734ed524620ee60e5062a816772881de.js": "/money-tracker/precache-manifest.734ed524620ee60e5062a816772881de.js",
+    "precache-manifest.5f5929424bd9f67bf9c95d0bc98263fe.js": "/money-tracker/precache-manifest.5f5929424bd9f67bf9c95d0bc98263fe.js",
     "service-worker.js": "/money-tracker/service-worker.js",
-    "static/js/2.3d4af7ae.chunk.js.LICENSE.txt": "/money-tracker/static/js/2.3d4af7ae.chunk.js.LICENSE.txt",
+    "static/js/2.311cfa86.chunk.js.LICENSE.txt": "/money-tracker/static/js/2.311cfa86.chunk.js.LICENSE.txt",
     "static/media/nutrition_supplements.png": "/money-tracker/static/media/nutrition_supplements.2fc04467.png"
   },
   "entrypoints": [
     "static/js/runtime-main.37284696.js",
-    "static/js/2.3d4af7ae.chunk.js",
-    "static/js/main.f7c4fdce.chunk.js"
+    "static/js/2.311cfa86.chunk.js",
+    "static/js/main.831058e6.chunk.js"
   ]
 }
