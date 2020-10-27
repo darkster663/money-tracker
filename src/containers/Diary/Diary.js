@@ -48,21 +48,19 @@ class Diary extends Component {
                 date: new Date()
             }
         ],
-        adding: false
+        showingModal: false,
+        entryForDeletionId: null
     };
 
     addEntryHandler = () => {
-        this.setState({adding: true});
+        this.setState({showingModal: true});
     }
 
-    cancelEntryHandler = () => {
-        this.setState({adding: false});
-    }
 
     onAddEntry = (formData) => {
         //Placeholder method
         const entry = {
-            id: formData['name'],
+            id: formData['description'],
             description: formData['description'],
             money: formData['money'],
             category: formData['category'],
@@ -71,19 +69,47 @@ class Diary extends Component {
         this.setState(prevState => ({
             entries: [...prevState.entries, entry]
         }));
-        this.setState({adding: false});
+        this.setState({showingModal: false});
         this.setState(prevState => ({total: prevState.total - entry.money}));
-
+    }
+    deleteEntryHandler = () => {
+        const entries = this.state.entries;
+        let moneyTotal = this.state.total;
+        const updatedEntries = entries.filter(entry => {
+            if (entry.id === this.state.entryForDeletionId) {
+                moneyTotal = moneyTotal + parseInt(entry.money);
+            }
+            return entry.id !== this.state.entryForDeletionId}
+        );
+        this.setState({entries: updatedEntries, total: moneyTotal, showingModal: false, entryForDeletionId: null});
     }
 
+
+    onDeleteEntry = (id) => {
+        this.setState({showingModal: true, entryForDeletionId: id});
+    }
+
+    closeModalHandler = () => {
+        this.setState({showingModal: false, entryForDeletionId: null});
+    }
+    
+
     render () {
+        const deleteMenu = (
+            <div>
+                <h1>Delete this entry?</h1>
+                <h2 className={classes.Confirm} onClick={this.deleteEntryHandler}>Yes</h2>
+                <h2 className={classes.Cancel} onClick={this.closeModalHandler}>No</h2>
+            </div>
+        );
         return (
             <Aux>
                 <MoneyDisplay totalMoney={this.state.total}/>
                 <div className={classes.AddButtonContainer}><button className={classes.AddButton} onClick={this.addEntryHandler}>ADD</button></div>
-                <DiaryEntries entries={this.state.entries}/>
-                <Modal show={this.state.adding} modalClosed={this.cancelEntryHandler}>
-                    {this.state.adding ? <AddEntry onAddEntry={this.onAddEntry}/> : null}
+                <DiaryEntries entries={this.state.entries} onDeleteEntry={this.onDeleteEntry}/>
+                <Modal show={this.state.showingModal} modalClosed={this.closeModalHandler}>
+                    {this.state.showingModal && !this.state.entryForDeletionId ? <AddEntry onAddEntry={this.onAddEntry}/> : null}
+                    {this.state.showingModal && this.state.entryForDeletionId ? deleteMenu : null}
                 </Modal>
             </Aux>
         );

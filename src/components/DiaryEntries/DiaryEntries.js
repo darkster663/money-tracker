@@ -7,11 +7,13 @@ const diaryEntries = props => (
     <div className={classes.DiaryEntries}>
         {props.entries.map(entry => (
             <DiaryEntry
-                key={entry.id} 
+                key={entry.id}
+                id={entry.id} 
                 description={entry.description}
                 money={entry.money}
                 category={entry.category}
-                date={entry.date}/>
+                date={entry.date}
+                delete={props.onDeleteEntry}/>
         ))}
     </div>
 )

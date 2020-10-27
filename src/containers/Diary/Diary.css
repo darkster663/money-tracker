@@ -29,10 +29,38 @@
     text-align: center;
 }
 
+.Confirm, .Cancel {
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    width: fit-content;
+}
+
+.Confirm:hover{
+    cursor: pointer;
+    color:  #85bb65; 
+}
+
+.Cancel:hover {
+    cursor: pointer;
+    color: #e33232;
+}
+
 
 /* Desktop only */
 @media(min-width: 500px) {
     .AddButtonContainer {
         width: 20%;
+    }
+}
+
+/* Mobile only */
+@media(max-width: 499px) {
+    .Confirm {
+        color:#85bb65;
+    }
+    .Cancel {
+        color: #e33232;
     }
 }

@@ -8,18 +8,11 @@
     text-align: center;
     width: 300px;
     left: calc(50% - 150px);
-    top: 30%;
+    top: 20%;
     box-sizing: border-box;
     transition: all 300ms ease-out;
 }
 
-@media(min-width: 600px) {
-    .Modal {
-        width: 500px;
-        left: calc(50% - 250px);
-        top: 30%;
-    }
-}
 
 
 .ModalOpen {
@@ -62,5 +55,13 @@
     100% {
         opacity: 0;
         transform: translateY(-100%);
+    }
+}
+
+@media(min-width: 600px) {
+    .Modal {
+        width: 500px;
+        left: calc(50% - 250px);
+        top: 30%;
     }
 }

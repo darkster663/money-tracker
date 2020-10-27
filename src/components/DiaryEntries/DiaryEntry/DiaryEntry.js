@@ -35,7 +35,8 @@ const diaryEntry = props => {
             <p className={classes.Money}>{props.money} RON</p>
             <p className={classes.Category}>{props.category}</p>
             <p className={classes.Date}>{props.date.toLocaleDateString().split(",")[0]}</p>
-            <div className={classes.Logo}><Logo source={logoSource} /></div>
+            <div className={classes.Logo}><Logo source={logoSource} /></div>    
+            <button className={classes.DeleteButton} onClick={() => props.delete(props.id)}>X</button>
         </div>
     );
 };
